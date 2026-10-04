@@ -71,7 +71,7 @@ footer{border-top:1px solid #ddd;padding:30px 22px;color:#777;font-size:12px}foo
 let count=0;
 document.querySelectorAll('.size').forEach(b=>b.onclick=()=>{document.querySelectorAll('.size').forEach(x=>x.classList.remove('active'));b.classList.add('active')});
 document.getElementById('buy').onclick=()=>{count++;document.getElementById('count').textContent=count;show('Added to bag.')};
-document.getElementById('bag').onclick=()=>show(count?count+' item'+(count>1?'s':'')+' in your bag.':'Your bag is empty.');
+document.getElementById('bag').onclick=()=>{if(count>0){window.location.href='https://buy.stripe.com/dRmbJ00L39yXdNX1bye3e00'}else{show('Your bag is empty.');}};
 function show(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
 </script>
 </body>
