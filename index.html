@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ILLIMITABLE — Sky's The Limit</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f3f0;color:#111;font-family:Arial,Helvetica,sans-serif}
+nav{position:sticky;top:0;background:rgba(243,243,240,.94);backdrop-filter:blur(10px);border-bottom:1px solid #ddd;z-index:5}
+.nav{max-width:1100px;margin:auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;letter-spacing:.2em;font-size:15px}.links{display:flex;gap:25px;font-size:13px}.links a{color:#111;text-decoration:none}
+.bag{background:#111;color:white;border:0;border-radius:30px;padding:10px 15px}
+.hero{max-width:1100px;margin:auto;padding:70px 22px 40px;display:grid;grid-template-columns:1fr 1.2fr;gap:55px;align-items:center}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em}.hero h1{font-size:clamp(55px,9vw,105px);line-height:.84;letter-spacing:-.07em;margin:18px 0}
+.hero p{color:#666;line-height:1.7;max-width:440px}.button{display:inline-block;background:#111;color:white;padding:15px 22px;border-radius:30px;text-decoration:none;font-weight:700;font-size:13px;margin-top:12px}
+.heroimg{background:#aaa;border-radius:5px;overflow:hidden}.heroimg img{display:block;width:100%}
+section{max-width:1100px;margin:auto;padding:70px 22px}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:25px}h2{font-size:38px;letter-spacing:-.05em;margin:5px 0}.muted{color:#777;font-size:13px}
+.product{background:#fff;display:grid;grid-template-columns:1.2fr 1fr}.photo{background:#aaa}.photo img{width:100%;display:block}.info{padding:45px}.pill{border:1px solid #bbb;border-radius:20px;padding:7px 11px;font-size:10px;letter-spacing:.15em}.info h3{font-size:43px;letter-spacing:-.06em;margin:22px 0 5px}.price{font-size:23px;font-weight:700}.desc{color:#666;line-height:1.7;margin:24px 0}.sizes{display:flex;gap:8px;margin:12px 0 25px}.size{width:42px;height:42px;border-radius:50%;border:1px solid #bbb;background:#fff}.size.active{background:#111;color:#fff}.buy{width:100%;padding:17px;border:0;background:#111;color:#fff;font-weight:700;border-radius:4px}.feature{border-top:1px solid #ddd;padding:13px 0;font-size:13px}
+.manifesto{display:grid;grid-template-columns:1fr 1fr;gap:60px}.manifesto h2{font-size:55px}.manifesto p{color:#666;line-height:1.9}
+footer{border-top:1px solid #ddd;padding:30px 22px;color:#777;font-size:12px}footer div{max-width:1100px;margin:auto;display:flex;justify-content:space-between}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,150px);background:#111;color:#fff;padding:13px 20px;border-radius:25px;transition:.25s}.toast.show{transform:translate(-50%,0)}
+@media(max-width:760px){.links{display:none}.hero,.product,.manifesto{grid-template-columns:1fr}.hero{padding-top:40px}.info{padding:30px}.manifesto h2{font-size:43px}footer div{display:block}}
+</style>
+</head>
+<body>
+<nav><div class="nav"><a class="logo" href="#">ILLIMITABLE</a><div class="links"><a href="#shop">Shop</a><a href="#manifesto">Manifesto</a><a href="#contact">Contact</a></div><button class="bag" id="bag">Bag <span id="count">0</span></button></div></nav>
+
+<main>
+<div class="hero">
+<div>
+<div class="eyebrow">EST. 2024 · ILLIMITABLE</div>
+<h1>Sky's<br>the limit.</h1>
+<p>Clean monochrome streetwear built around ambition, progress and the idea that your potential has no ceiling.</p>
+<a class="button" href="#shop">SHOP NOW →</a>
+</div>
+<div class="heroimg"><img src="tshirt.jpg" alt="ILLIMITABLE white graphic T-shirt"></div>
+</div>
+
+<section id="shop">
+<div class="head"><div><div class="eyebrow">01 / THE DROP</div><h2>Sky's The Limit Tee</h2></div><div class="muted">Limited release</div></div>
+<div class="product">
+<div class="photo"><img src="tshirt.jpg" alt="ILLIMITABLE Sky's The Limit T-shirt"></div>
+<div class="info">
+<span class="pill">ILLIMITABLE · 2026</span>
+<h3>Sky's The Limit Tee</h3>
+<div class="price">£20</div>
+<p class="desc">A clean white graphic tee featuring the ILLIMITABLE staircase artwork, designed around one message: keep pushing, keep growing.</p>
+<div class="feature">Heavyweight-feel cotton silhouette</div>
+<div class="feature">Front ILLIMITABLE chest branding</div>
+<div class="feature">Large back staircase graphic</div>
+<div class="feature">Unisex fit</div>
+<div class="eyebrow" style="margin-top:25px">SELECT SIZE</div>
+<div class="sizes">
+<button class="size">XS</button><button class="size">S</button><button class="size active">M</button><button class="size">L</button><button class="size">XL</button>
+</div>
+<button class="buy" id="buy">ADD TO BAG — £20</button>
+</div>
+</div>
+</section>
+
+<section id="manifesto">
+<div class="manifesto">
+<div><div class="eyebrow">02 / THE MANIFESTO</div><h2>Keep pushing.<br>Keep growing.</h2></div>
+<div><p>ILLIMITABLE represents the mindset of moving forward. The staircase is a reminder that progress is built one step at a time.</p><p>No limits. No excuses. Just progress.</p></div>
+</div>
+</section>
+</main>
+<footer id="contact"><div><span>© 2026 ILLIMITABLE</span><span>SKY'S THE LIMIT</span></div></footer>
+<div class="toast" id="toast">Added to bag.</div>
+<script>
+let count=0;
+document.querySelectorAll('.size').forEach(b=>b.onclick=()=>{document.querySelectorAll('.size').forEach(x=>x.classList.remove('active'));b.classList.add('active')});
+document.getElementById('buy').onclick=()=>{count++;document.getElementById('count').textContent=count;show('Added to bag.')};
+document.getElementById('bag').onclick=()=>show(count?count+' item'+(count>1?'s':'')+' in your bag.':'Your bag is empty.');
+function show(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
+</script>
+</body>
+</html>
